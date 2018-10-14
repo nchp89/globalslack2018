@@ -5,8 +5,13 @@ angular
 
     authCtrl.user = {
       email: "",
-      password: ""
+      password: "",
+      region: "",
+      lang: ""
     };
+
+
+
 
     authCtrl.login = function() {
       Auth.$signInWithEmailAndPassword(
@@ -25,10 +30,12 @@ angular
     authCtrl.register = function() {
       Auth.$createUserWithEmailAndPassword(
         authCtrl.user.email,
-        authCtrl.user.password
+        authCtrl.user.password,
+        authCtrl.user.region,
+        authCtrl.user.lang
       ).then(
         function(user) {
-          $state.go("home");
+           $state.go("home");
         },
         function(error) {
           authCtrl.error = error;
