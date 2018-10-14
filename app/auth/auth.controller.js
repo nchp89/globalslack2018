@@ -138,7 +138,7 @@ angular
         authCtrl.user.lang
       ).then(
         function(user) {
-          $state.go("home");
+           $state.go("home");
         },
         function(error) {
           authCtrl.error = error;
