@@ -7,6 +7,19 @@ angular
     messagesCtrl.channelName = channelName;
     messagesCtrl.message = "";
 
+    var usersRef = firebase.database().ref("users");
+    var lang = usersRef.child(profile.$id).child("lang");
+    var chnMsg = firebase.database().ref("channelMessages");
+
+    chnMsg.on("value", snapshot => {
+      lang.on("value", snapshot => {
+        for (var i = 0; i < messages.length; i++) {
+          messages[i].translations["ar"] =
+            messages[i].translations[snapshot.val()];
+        }
+      });
+    });
+
     messagesCtrl.sendMessage = function() {
       if (messagesCtrl.message.length > 0) {
         messagesCtrl.messages

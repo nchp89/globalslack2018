@@ -10,7 +10,10 @@
             <span class="timestamp">{{ message.timestamp | date:'short' }}</span>
         </div>
         <div class="message">
-            {{ message.body }}
+            {{ message.body }} </br>
+            <i>
+                <font color="blue"> {{(message.translations.ar)}} </font>
+            </i>
         </div>
     </div>
 </div>
