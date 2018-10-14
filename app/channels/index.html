@@ -2,14 +2,14 @@
     <div class="sidebar">
 
         <div class="slack-name">
-            <h2 style="font-size:40px">Melting Pot</h2>
+            <h2 style="font-size:40px">MeltingPot</h2>
         </div>
 
         <div class="channel-list">
             <div class="channel-list">
                 <div class="list-head">Topics</div>
                 <div class="channel" ng-repeat="channel in channelsCtrl.channels">
-                    <a ui-sref="channels.messages({channelId: channel.$id})" ui-sref-active="selected"># {{
+                    <a ui-sref="channels.messages({channelId: channel.$id})" ui-sref-active="selected"> {{
                         channel.name }}</a>
                 </div>
 
