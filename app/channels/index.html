@@ -2,12 +2,12 @@
     <div class="sidebar">
 
         <div class="slack-name">
-            <h2>FireSlack</h2>
+            <h2 style="font-size:40px">Melting Pot</h2>
         </div>
 
         <div class="channel-list">
             <div class="channel-list">
-                <div class="list-head">Channels</div>
+                <div class="list-head">Topics</div>
                 <div class="channel" ng-repeat="channel in channelsCtrl.channels">
                     <a ui-sref="channels.messages({channelId: channel.$id})" ui-sref-active="selected"># {{
                         channel.name }}</a>
@@ -19,14 +19,16 @@
             </div>
 
 
-            <div class="list-head">Direct Messages</div>
-            <div class="channel" ng-repeat="user in channelsCtrl.users">
+            <div class="list-head">Community</div>
+            <input class="searchInput" type="text" placeholder="Search" ng-model="search.lang">
+            <div class="channel" ng-repeat="user in channelsCtrl.users | filter:search">
                 <a ng-if="user.$id !== channelsCtrl.profile.$id" ui-sref="channels.direct({uid: user.$id})"
                     ui-sref-active="selected">
                     <span class="presence" ng-class="{online: user.online}"></span>
-                    {{ user.displayName }}
+                    ({{ user.lang | uppercase }}) {{ user.displayName }}
                 </a>
             </div>
+
         </div>
 
         <div class="my-info">
@@ -35,6 +37,10 @@
                 <div class="user-name">
                     <span class="presence" ng-class="{online: channelsCtrl.profile.online}"></span>
                     {{ channelsCtrl.profile.displayName }}
+                </div>
+
+                <div class="my-sub-info">
+                    Region: {{ channelsCtrl.profile.region }}, Lang: {{ channelsCtrl.profile.lang | uppercase }}
                 </div>
 
                 <div class="options">

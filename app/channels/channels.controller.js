@@ -10,6 +10,7 @@ angular
     channelsCtrl.users = Users.all;
 
     channelsCtrl.getDisplayName = Users.getDisplayName;
+    channelsCtrl.getLang = Users.getLang;
     channelsCtrl.getGravatar = Users.getGravatar;
 
     channelsCtrl.newChannel = {

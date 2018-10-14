@@ -12,6 +12,9 @@ angular
       getDisplayName: function(uid) {
         return users.$getRecord(uid).displayName;
       },
+      getLang: function(uid) {
+        return users.$getRecord(uid).lang;
+      },
       getGravatar: function(uid) {
         return "//www.gravatar.com/avatar/" + users.$getRecord(uid).emailHash;
       },
